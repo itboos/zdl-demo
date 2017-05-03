@@ -1,0 +1,10 @@
+.idea
+**.log
+node_modules/
+**/dist/
+**/dist_test/
+**/publish/
+**/.DS_Store
+**/act_charge_test/
+**/.project
+**/debug/
