@@ -1,8 +1,10 @@
 import {ajax,jsonp} from './ajax.js';
 
 export default {
-	host: 'http://api.live.nagezan.net/cgi-bin/',
-	defaultHead:'http://static.live.nagezan.net/live/fb284641-a4a6-4a2f-b596-abfb49ba037c.png',
+	//host: 'http://api.live.nagezan.net/cgi-bin/',
+	host: 'http://116.62.28.97:9092/', //测试地址
+	defaultHead:'http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',
+	//defaultHead:'http://static.live.nagezan.net/live/fb284641-a4a6-4a2f-b596-abfb49ba037c.png', 小爱默认头像
 	init(){
 	  const doc = window.document;
 	  let docEl = doc.documentElement;
@@ -56,13 +58,13 @@ export default {
 	  var header='';
 	  //图片懒加载
 	  for(var i = 0 ; i < list.length ; i ++) {
-	    header = list[i].headurl;
+	    header = list[i].avatar;
 	    list[i].head = {
 	      src: header,
 	      error: 'http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',
 	      loading: 'http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png'
 	    }
-	    list[i].cnickName2=encodeURIComponent(list[i].cnickName);
+	    
 	  }
 	  return list;
 	},
@@ -88,9 +90,22 @@ export default {
 				console.log(error);
 			});
 	},
-	jsonp(url,callback){
-		jsonp(url).then( (res)=> {
-		 callback(res);
+	jsonp(url,params,callback){
+		jsonp(url,params).then( (res)=> {
+		 	callback(res);
 		})
 	},
+	list:[
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"},
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"},
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"},
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"},
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"},
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"},
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"},
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"},
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"},
+		   	{nick:'虚位以待',uid:'19541200',exp:'0',data2:'8876',avatar:"http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png"}
+
+	]
 }

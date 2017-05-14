@@ -90,9 +90,9 @@ function jsonp(_url, params = {}, options = {}) {
     Object.keys(params).forEach(key => {
       query.push(`${key}=${params[key]}`);
     })
-    _url += (query.elngth === 0) ? '?' : `?${query.join('&')}`;
-    _url += `&${jsonp}=${cb}`;
-
+    _url += (query.length === 0) ? '?' : `?${query.join('&')}`;
+     _url += `&${jsonp}=${cb}`;
+     console.log(_url);
     // register the callback function
     window[cb] = (res) => {
       resolve(res);

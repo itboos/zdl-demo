@@ -1,12 +1,7 @@
 <template>
   <div id="app">
       <top></top>
-      <div id="test">
-        <h3>我是h3呀。。。。</h3>
-        <p>
-          
-        </p>
-      </div>
+      <h3>这是测试啊</h3>
   </div>
 </template>
 
@@ -25,6 +20,7 @@ export default {
   data(){
     return {
       CGI:'http://api.live.nagezan.net',
+      CGI2: 'http://api2.zg.xiaoyoureliao.com',
       remainTime: {
          time: 0,
          h: '0',
@@ -47,6 +43,33 @@ export default {
         CGI.post(this.CGI+'/cgi-bin/get_top_list',params,(resp)=>{
           console.log(resp);
         },'text/plain');
+    },
+    // JSONP请求
+    getData2(){
+        // offset=0 表示本周数据，=-1 表示请求上周前三数据
+        var params={
+          gid: 9999,
+          offset: 0
+        }
+        //CGI.jsonp(this.CGI+'v1/c5/xiaoyou/weekly_top_gift.json?gid=9999&offset=0',(resp)=>{
+        CGI.jsonp(this.CGI+'/v1/c5/xiaoyou/weekly_top_gift.json',params,(resp)=>{
+          if(resp.code === 0){
+            //console.log(resp);
+            var data= resp.data;
+            this.loadding= false;
+            this.leftTime= data.diffTimestamp;
+            var anchors= CGI.addLazy( data.anchor );
+            //榜单数据
+            if(anchors.length > 0 && anchors.length <= 10 ){
+              for(var i=0;i< anchors.length; i++){
+                this.list.splice(i, 1, anchors[i]);
+              }
+            }
+            //this.list=[];
+            this.cutDown(this.leftTime);
+          }
+         
+        });
     },
     cutDown(leftTime){
       clearInterval(this.timer);
@@ -134,14 +157,7 @@ export default {
 </style>
 <style lang="scss">
    @import './lib/function';
-    #test {
-      width:100%;
-      height:300px;
-      color:red;
-      font-size: rem(20);
-    }
-    #test  h3{
-      font-size: rem(48,48);
-    }
-      
+   h3{
+      font-size: rem(40);
+   }
 </style>
