@@ -25,12 +25,12 @@ export default {
   data(){
     return {
       anchors:[
-        {uid:'12288781',name:'主播1',headUrl:'http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:true},
-        {uid:'12288781',name:'主播2',headUrl:'http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
-        {uid:'12288781',name:'主播3',headUrl:'http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
-        {uid:'12288781',name:'主播4',headUrl:'http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
-        {uid:'12288781',name:'主播5',headUrl:'http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
-        {uid:'12288781',name:'主播6',headUrl:'http://oneshow.img.nagezan.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
+        {uid:'12288781',name:'主播1',headUrl:'http://oneshow.img.aaaa.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:true},
+        {uid:'12288781',name:'主播2',headUrl:'http://oneshow.img.aaaa.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
+        {uid:'12288781',name:'主播3',headUrl:'http://oneshow.img.aaaa.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
+        {uid:'12288781',name:'主播4',headUrl:'http://oneshow.img.aaaa.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
+        {uid:'12288781',name:'主播5',headUrl:'http://oneshow.img.aaaa.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
+        {uid:'12288781',name:'主播6',headUrl:'http://oneshow.img.aaaa.net/live/471b9a01-d1d2-4f16-bbde-b2cc34186ee4.png',isFollow:false},
       ]
     }
   },
@@ -48,12 +48,12 @@ export default {
             }
         };
         var params2= {campaign:"campaign20170125"};
-        var url='http://apih5.nagezan.net/v1/c4/get_gift_conf.json';
+        var url='http://apih5.aaaa.net/v1/c4/get_gift_conf.json';
         var url2='https://mma.qq.com/mqqactivity/cgi/starmap/get_online';
-        var url3='http://api2.live.nagezan.net/v1/c5/get_double_exp.json';  //get 
-        var url4='http://api.voss2.nagezan.net:9090/v1/voss/post/double_exp_billboard';
+        var url3='http://api2.live.aaaa.net/v1/c5/get_double_exp.json';  //get 
+        var url4='http://api.voss2.aaaa.net:9090/v1/voss/post/double_exp_billboard';
         var url5='http://116.62.28.97:9093/v1/xiaoyou/voss/get_relation';  // post
-        var url6='http://api.live.nagezan.net/cgi-bin/get_top_list';  // post
+        var url6='http://api.live.aaaa.net/cgi-bin/get_top_list';  // post
 
         //jsonp(url,{callback: 'render'}).then(res=>{console.log(res)})
         //jsonp(url2,{method: 'encode',nextWeek:0},{jsonp: 'callback'}).then(res=>{console.log(res)})
@@ -64,12 +64,12 @@ export default {
         // CGI.jsonp(url3,(resp)=>{
         //   console.log(resp);
         // });
-        CGI.post('http://api.live.nagezan.net/cgi-bin/get_top_list',params2,(resp)=>{
+        CGI.post('http://api.live.aaaa.net/cgi-bin/get_top_list',params2,(resp)=>{
           console.log(resp);
         },'text/plain');
     },
     getData3(){
-      axios.get('http://api2.live.nagezan.net/v1/c5/get_double_exp.json',{
+      axios.get('http://api2.live.aaaa.net/v1/c5/get_double_exp.json',{
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       })
         .then(function (resp) {
@@ -82,7 +82,7 @@ export default {
     getData(){
       console.log(axios.defaults);
       axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-      axios.post('http://api.live.nagezan.net/cgi-bin/get_top_list', {
+      axios.post('http://api.live.aaaa.net/cgi-bin/get_top_list', {
             'campaign':"campaign20170125"
         },{ //POST 请求必须加上这个配置
            headers:{'Content-Type':'application/x-www-form-urlencoded'}
@@ -105,7 +105,7 @@ export default {
           uid:10004
         };
 
-      axios.post('http://api.voss2.nagezan.net:9090/v1/voss/post/double_exp_billboard', params
+      axios.post('http://api.voss2.aaaa.net:9090/v1/voss/post/double_exp_billboard', params
          ,{ //设置请求头，这个不同的接口可能会不同，可能的参数有  text/plain，application/x-www-form-urlencoded，
            headers:{'Content-Type':'text/plain'}
         })
